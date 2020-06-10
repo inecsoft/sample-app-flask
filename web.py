@@ -4,16 +4,13 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
 from random import randint
 
-
 def shutdown_server():
     func = request.environ.get('werkzeug.server.shutdown')
     if func is None:
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
 
-
 myapp = Flask(__name__)
-
 
 @myapp.route('/shutdown', methods=['POST'])
 def shutdown():
@@ -27,6 +24,6 @@ def hello():
     return render_template(
         'test.html', **locals())
 
-
 if __name__ == "__main__":
-    myapp.run(host='0.0.0.0', port=80)
+    myapp.run(host='0.0.0.0', port=5000)
+
